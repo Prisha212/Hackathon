@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <script src="./styles.css"></script> -->
+    <title>Food Security</title>
+    <style>
+        #outer-boundary-top {
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+       #country {
+        padding-top: 10px;
+        padding-right:15px;
+        /* align-self:center; */
+        float:right;
+        }
+        #heading {
+            text-align: center;
+        }
+        .dropdown-options {  
+            position: absolute;  
+            background-color: white;  
+            min-width: 200px;  
+            display: none;  
+            z-index: 1;  
+        }
+        .dropdown-options a {
+            color: black;  
+            padding: 12px 20px;  
+            text-decoration: none;  
+            font-size: 10px;
+            display: block;
+        }
+        .dropdown:hover .dropdown-options {
+            display: block;
+        }
+        .dropdown-options a:hover {
+            color: #0a0a23;
+            background-color: #ddd;
+            border-radius:5px;
+        }
+        .dropbtn {
+            background-color: white;  
+            color: black; 
+            align-self: center;
+            padding-left: 50px;
+            border-color: #ddd; 
+            padding: 10px;  
+            font-size: 12px;  
+        }
+        #btn-padding {
+            padding-left: 30px;
+            padding-top: 10px;
+        }
+        #top-bar {
+            white-space: nowrap;
+        }
+        #top-sub-element {
+            display: inline-block;
+            padding-left: 20px;
+            padding-top: 25px;
+            width: 35%;
+        }
+        .btn-group {
+            color: white; /* White text */
+            padding: 10px 24px; /* Some padding */
+            cursor: pointer; /* Pointer/hand icon */
+            width: 50%; /* Set a width if needed */
+            display: block; /* Make the buttons appear below each other */
+        }
+        .btn-group button:not(:last-child) {
+            border-bottom: none; /* Prevent double borders */
+        }
+        /* Add a background color on hover */
+        .btn-group button:hover {
+            background-color: #40a3d1;
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="outer-boundary-top">
+        <div id="top-bar" style="width:1345px;height:100px;border:2px solid #000;">
+            <div id="top-sub-element">
+                <button type="button" class="btn btn-primary btn-lg btn-group-vertical">logo</button>
+            </div>
+            <div id="top-sub-element">
+                <p>Food Security Time Series Dashboard</p>
+            </div>
+            <div id="top-sub-element" class="btn-group">
+                <button type="button" class="btn btn-primary btn-lg btn-group-vertical">INDIA</button>
+                <button type="button" class="btn btn-primary btn-lg btn-group-vertical">USA</button>
+                <button type="button" class="btn btn-primary btn-lg btn-group-vertical">CHINA</button>
+                <button type="button" class="btn btn-primary btn-lg btn-group-vertical">EQUADOR</button>
+            </div>        
+        </div>
+
+        <div id="side-bar" style="width: 250px;height:525px;border:2px solid #000;">
+            <div id="macroeconomics" class="dropdown">
+                <div id="btn-padding">
+                    <button class="dropbtn">Macroeconomics</button>
+                    <div class="dropdown-options">
+                        <a href="#">GDP (USD)</a>
+                        <a href="#">FDI Inflows (USD)</a>
+                        <a href="#">FDI Outflows (USD)</a>
+                  </div>
+                </div> 
+            </div>
+            <br>
+            <br> 
+            <div id="btn-padding">
+                <div id="agriculture" class="dropdown">
+                    <button class="dropbtn">Agriculture</button>
+                    <div class="dropdown-options">
+                          <a href="#">Contribution of agri(% GDP)</a>
+                          <a href="#">Credit</a>
+                          <a href="#">Fertilizers</a>
+                          <a href="#">Fertilizers Prod</a>
+                    </div>
+                </div>
+            </div> 
+            <br> 
+            <br>
+            <div id="btn-padding">
+                <div id="agriculture" class="dropdown">
+                    <button class="dropbtn">Debt Services</button>
+                    <div class="dropdown-options">
+                          <a href="#">Reserves</a>
+                          <a href="#">GNI</a>
+                          <a href="#">Total Debt(%)</a>
+                    </div>
+                </div>
+            </div> 
+            <br> 
+            <br>
+            <div id="btn-padding">
+                <div id="agriculture" class="dropdown">
+                    <button class="dropbtn">Crops</button>
+                    <div class="dropdown-options">
+                          <a href="#">Banana</a>
+                          <a href="#">Mangoes</a>
+                          <a href="#">Walnuts</a>
+                    </div>
+                </div>
+            </div> 
+            <br> 
+            <br>
+            <br>
+            <div id="import/export" style="padding-left: 30px;">
+                <button type="button" class="btn btn-primary btn-lg btn-group-vertical">Import/Export</button>
+            </div>
+            <br>
+            <br>
+            <div id="yield" style="padding-left: 60px;">
+                <button type="button" class="btn btn-primary btn-lg btn-group-vertical">Yield</button>
+            </div>
+        </div>
+    </div>
+   
+    <div id="main"></div>
+</body>
+</html>

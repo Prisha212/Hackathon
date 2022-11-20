@@ -1,0 +1,84 @@
+
+    #outer-boundary-top {
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+   #country {
+    padding-top: 10px;
+    padding-right:15px;
+    /* align-self:center; */
+    float:right;
+    }
+    #heading {
+        text-align: center;
+    }
+    .dropdown-options {  
+        position: absolute;  
+        background-color: white;  
+        min-width: 200px;  
+        display: none;  
+        z-index: 1;  
+    }
+    .dropdown-options a {
+        color: black;  
+        padding: 12px 20px;  
+        text-decoration: none;  
+        font-size: 10px;
+        display: block;
+    }
+    .dropdown:hover .dropdown-options {
+        display: block;
+    }
+    .dropdown-options a:hover {
+        color: #0a0a23;
+        background-color: #ddd;
+        border-radius:5px;
+    }
+    .dropbtn {
+        background-color: white;  
+        color: black; 
+        align-self: center;
+        padding-left: 50px;
+        border-color: #ddd; 
+        padding: 10px;  
+        font-size: 12px;  
+    }
+    #btn-padding {
+        padding-left: 30px;
+        padding-top: 10px;
+    }
+    #top-bar {
+        white-space: nowrap;
+    }
+    #top-sub-element {
+        display: inline-block;
+        padding-left: 20px;
+        padding-top: 25px;
+        width: 35%;
+    }
+    .btn-group .button {
+        color: white; /* White text */
+        padding: 10px 24px; /* Some padding */
+        cursor: pointer; /* Pointer/hand icon */
+        width: 40%; /* Set a width if needed */
+        display: block; /* Make the buttons appear below each other */
+    }
+    .btn-group .button:not(:last-child) {
+        border-bottom: none; /* Prevent double borders */
+    }
+    /* Add a background color on hover */
+    .btn-group .button:hover {
+        background-color: #40a3d1;
+    }
+    #years {
+        padding-top:20px;
+        padding-left: 500px;
+        display: inline-block;
+    }
+    #second-bar {
+        white-space: nowrap;
+    }
+    #crops {
+        padding-left: 160px;
+        display: inline-block;
+    }
