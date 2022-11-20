@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+
+      // Load the Visualization API and the controls package.
+      google.charts.load('current', {'packages':['corechart', 'controls','line']});
+      var url="https://api.worldbank.org/v2/country/cn/indicator/BX.KLT.DINV.WD.GD.ZS?locations=CN&format=json";
+  //var url="https://api.worldbank.org/v2/country/cn/indicator/NV.AGR.TOTL.ZS?locations=CN&format=json"
+      // Set a callback to run when the Google Visualization API is loaded.
+
+      google.charts.setOnLoadCallback(drawDashboard);
+
+      // Callback that creates and populates a data table,
+      // instantiates a dashboard, a range slider and a pie chart,
+      // passes in the data and draws it.
+
+
+
+      async function funcName(url,data){
+
+        const response = await fetch(url);
+        var res = await response.json();
+        console.log(res);
+         //console.log(Object.keys(res[1][0]));
+         //console.log(res[1][0]["value"]);
+         //console.log(res[1][0]["date"]);
+         p=res[1];
+          console.log("in response");
+         console.log(p);
+
+         p.forEach(item=>{
+           var date1 = new Date(Number(item['date']),2,3);
+           var day = date1.getUTCFullYear();
+           console.log(typeof day);
+           data.push([date1,Number(item['value'])]);
+         })
+         console.log(data);
+
+
+
+
+
+
+       }
+
+       async function drawDashboard() {
+          url="https://api.worldbank.org/v2/country/cn/indicator/BX.KLT.DINV.WD.GD.ZS?locations=CN&format=json"
+          var data = []
+          data.push(["Year","Value"]);
+        await funcName(url,data);
+        data=google.visualization.arrayToDataTable(data);
+        var monthYearFormatter = new google.visualization.DateFormat({
+     pattern: "yyyy"
+});
+monthYearFormatter.format(data, 0);
+      /*  var data = google.visualization.arrayToDataTable([
+          ['Value', 'Year'],
+          [0,0]
+        ]);**/
+
+
+
+
+
+
+
+
+
+
+         console.log("Iam out");
+
+        console.log(data);
+
+        // Create our data table.
+
+
+        // Create a dashboard.
+        var dashboard = new google.visualization.Dashboard(
+            document.getElementById('dashboard_div'));
+
+        // Create a range slider, passing some options
+        var donutRangeSlider = new google.visualization.ControlWrapper({
+          'controlType': 'DateRangeFilter',
+          'containerId': 'filter_div',
+          'options': {
+            'ui':{
+              'filterColumnIndex': 0,
+              'format':"pattern(yyyy)",
+              'showRangeValues':true,
+              'minValue':"1972",
+              'hAxis': {'format': 'yyyy'}
+
+            },
+            'filterColumnLabel': 'Year',
+
+
+          }
+        });
+
+        // Create a pie chart, passing some options
+        var pieChart = new google.visualization.ChartWrapper({
+          'chartType': 'LineChart',
+          'containerId': 'chart_div',
+
+        });
+
+
+        // Establish dependencies, declaring that 'filter' drives 'pieChart',
+        // so that the pie chart will only display entries that are let through
+        // given the chosen slider range.
+        dashboard.bind(donutRangeSlider, pieChart);
+
+        // Draw the dashboard.
+        dashboard.draw(data);
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <script>
+
+
+    </script>
+    <!--Div that will hold the dashboard-->
+    <div id="dashboard_div">
+      <!--Divs that will hold each control and chart-->
+      <div id="filter_div"></div>
+      <div id="chart_div"></div>
+    </div>
+  </body>
+</html>
