@@ -16,6 +16,10 @@ app.get('/', function(req,res) {
     res.sendFile(__dirname+'/index.html');
 })
 
+app.get('/imports', function(req,res) {
+    res.sendFile(__dirname+'/imports.html');
+})
+
 connection.connect(function(error) {
     if(error) throw error;
     else {
