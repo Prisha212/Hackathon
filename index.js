@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 const csvtojson = require('csvtojson');
-var port = Process.env.port || 3000;
+var port = process.env.PORT || 3000;
 
 var mysql = require('mysql');
 
@@ -23,4 +23,6 @@ connection.connect(function(error) {
     }
 })
   
-app.listen(port);
+app.listen(port,function(){
+    console.log("Express server listening");
+  });
